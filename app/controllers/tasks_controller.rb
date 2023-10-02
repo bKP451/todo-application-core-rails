@@ -7,7 +7,7 @@ class TasksController < ApplicationController
     if @project
       @tasks = @project.tasks
     else 
-      redirect_to root_pat
+      redirect_to root_path
     end
   end
 
