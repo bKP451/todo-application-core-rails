@@ -1,0 +1,15 @@
+<% provide(:title, @project.project_name) %>
+<% if flash[:danger].present? %>
+  <div class="alert alert-danger">
+    <%= flash[:danger] %>
+  </div>
+<% end %>
+<div class="project-description-section" data-project-id="<%= @project.id%>" >
+  <h1 class="project-description-section-heading"><%= @project.project_name %></h1>
+  <%= render 'shared/new_task_form', task: @task %>
+  <ul class="todo-lists">
+  <% @tasks.each do |task| %>
+    <%= render 'single_task_item', task: task %>
+  <% end %>
+  </ul>
+</div>

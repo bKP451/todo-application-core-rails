@@ -1,0 +1,80 @@
+// Place all the styles related to the Projects controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+.todo-app-title {
+  color: blue;
+}
+
+.projects-listing-section {
+  flex: 2;
+  border: 1px green dashed;
+}
+
+.projects-listing-section ul {
+  list-style: none;
+}
+
+.projects-listing-section ul li{
+  margin: 5px;
+}
+
+.project-description-section {
+  flex: 8;
+  border: 1px black solid;
+}
+
+.body-section {
+  display: flex;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.project-description-section-heading {
+  text-align: center;
+}
+
+.todo-input-items-wrapper {
+  display: flex;
+  padding: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
+.form-group label {
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.form-group input {
+  border: 1px black solid;
+  padding: 8px;
+  width: 250px;
+}
+
+.add-task-button {
+  background-color: rgb(0, 230, 122);
+  border: none;
+  margin-top: 25px;
+  padding: 10px;
+  cursor: pointer;
+}
+
+// single-task-item box
+
+.todo-lists {
+  list-style-type: none;
+}
+
+.single-todo-item {
+  border: 1px solid orange;
+  padding: 10px;
+  margin-bottom: 10px;
+}

@@ -1,0 +1,9 @@
+<li class="single-todo-item">
+    <%= form_with do |f| %>
+      <%= f.check_box :completed, class: 'form-check-input' %>
+      <label class="form-check-label"><%= task.task_name %></label>
+      <p><%= task.task_description %></p>
+      <%= render 'shared/edit_icon_svg.html.erb' %>
+      <%= render 'shared/delete_icon_svg.html.erb' %>
+    <% end %>
+</li>

@@ -1,0 +1,19 @@
+<%= form_with(model: task, local:true ) do |f| %>
+  <%= hidden_field_tag 'task[project_id]', @project.id %>
+  <%# render 'error_messages', object: @task %>
+  <div class="todo-input-items-wrapper">
+    <div class="form-group">
+      <%= f.label :task_name, 'Title'%>
+      <%= f.text_field :task_name, class: 'form-control', placeholder: 'Drink orange juice' %>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :task_description, 'Description' %>
+      <%= f.text_area :task_description, class: 'form-control', placeholder: 'Peel off the oranges and put it in Grinder' %>
+    </div>
+
+    <div class="form-group">
+    <%= f.submit 'Add', class:"add-task-button" %>
+    </div>
+  </div>
+<% end %>

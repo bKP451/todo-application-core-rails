@@ -1,0 +1,17 @@
+<div class="project-description-section" data-project-id="<%= @project.id%>" >
+  <h1 class="project-description-section-heading"><%= @project.project_name %></h1>
+  <%= render 'shared/new_task_form', task: @task %>
+  <ul class="todo-lists">
+  <% @project.tasks.each do |task| %>
+    <li class="single-todo-item">
+    <%= form_with do |f| %>
+      <%= f.check_box :completed, class: 'form-check-input' %>
+      <label class="form-check-label"><%= task.task_name %></label>
+      <p><%= task.task_description %></p>
+      <%# render 'edit_icon_svg.html.erb' %>
+      <%# render 'delete_icon_svg.html.erb' %>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
+</div>
