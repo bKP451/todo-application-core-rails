@@ -1,17 +1,18 @@
 <li class="single-todo-item">
-    <%= form_with(model: task, local:true) do |f| %>
-      <%= f.check_box :completed, class: 'form-check-input' %>
-      <label class="form-check-label"><%= task.task_name %></label>
+  <%= form_with(model: task, local: true) do |f| %>
+    <div class="read-only">
+      <%= f.check_box :completed %>
+      <label><%= task.task_name %></label>
       <p><%= task.task_description %></p>
-      <%= render 'shared/edit_icon_svg.html.erb' %>
-      <%= render 'shared/delete_icon_svg.html.erb' %>
-    <% end %>
-</li><li class="single-todo-item">
-    <%= form_with(model: task, local:true) do |f| %>
-      <%= f.check_box :completed, class: 'form-check-input' %>
-      <label class="form-check-label"><%= task.task_name %></label>
-      <p><%= task.task_description %></p>
-      <%= render 'shared/edit_icon_svg.html.erb' %>
-      <%= render 'shared/delete_icon_svg.html.erb' %>
-    <% end %>
+    </div>
+    <div class="edit" style="display: none;">
+      <%= f.check_box :completed %>
+      <%= f.text_field :task_name%>
+      <%= f.text_area :task_description %>
+      <%= f.submit 'Update', class: 'btn btn-primary' %>
+    </div>
+    <%= render 'shared/edit_icon_svg.html.erb', task: task, class: 'edit-icon' %>
+    <%= render 'shared/delete_icon_svg.html.erb', task: task, class: 'cancel-icon' %>
+  <% end %>
 </li>
+
