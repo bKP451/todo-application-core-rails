@@ -4,12 +4,23 @@
     <%= flash[:danger] %>
   </div>
 <% end %>
-<div class="project-description-section" data-project-id="<%= @project.id%>" >
-  <h1 class="project-description-section-heading"><%= @project.project_name %></h1>
-  <%= render 'shared/new_task_form', task: @task %>
+<div class="project-description-section" data-project-id="<%= @project.id %>" >
+  <div class="project-description-section-heading">
+    <div class="project-title">
+      <h1>
+        <%= @project.project_name %>
+      </h1>
+    </div>
+    <%= form_with(model: @project, local:true, html: { id: 'project-title-form', style: 'display: none;'}) do |f| %>
+      <%= f.text_field :project_name, class: 'project-name-description-edit-input' %>
+      <%# f.submit 'Update' %>
+    <% end %>
+  </div>
+
+  <%= render 'shared/new_task_form', task: @new_task %>
   <ul class="todo-lists">
-  <% @tasks.each do |task| %>
-    <%= render 'single_task_item', task: task %>
+  <% @tasks.each do |saved_task| %>
+    <%= render 'single_task_item', task: saved_task %>
   <% end %>
   </ul>
 </div>
