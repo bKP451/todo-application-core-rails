@@ -13,7 +13,6 @@
     </div>
     <%= form_with(model: @project, local:true, html: { id: 'project-title-form', style: 'display: none;'}) do |f| %>
       <%= f.text_field :project_name, class: 'project-name-description-edit-input' %>
-      <%# f.submit 'Update' %>
     <% end %>
   </div>
 

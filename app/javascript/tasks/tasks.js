@@ -13,13 +13,11 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   projectTitle.addEventListener("click", function(){
-    // console.log('I am now editable');
     projectTitleForm.style.display = "block";
     projectTitle.style.display = "none";
   })
 
   projectTitleDescriptionInput.addEventListener("blur", function(){
-    console.log("I am focused out");
     projectTitleForm.submit();
   })
 
