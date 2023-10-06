@@ -35,7 +35,7 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
     end
 
     # Ensuring the edit form is displayed
-    assert_select '#project-title-form .project-name-description-edit-input', count: 1
+    assert_select '#project-title-form .project-name-description-section-edit-input', count: 1
   end
 
   test "Should load all projects on each project page" do
@@ -46,7 +46,12 @@ class ProjectsControllerTest < ActionDispatch::IntegrationTest
 
   test "Should create a new Project when I click on create button " do
     get project_path(@project_one)
-    
+    assert_select '#project_project_name', count: 1
+
+    post projects_path, params: { project: {
+      project_name: "Don't slide"
+    }}
+    assert flash.empty?
   end
 
 

@@ -2,16 +2,8 @@
   <h1 class="project-description-section-heading"><%= @project.project_name %></h1>
   <%= render 'shared/new_task_form', task: @task %>
   <ul class="todo-lists">
-  <%# @project.tasks.each do |task| %>
-    <li class="single-todo-item">
-    <%= form_with do |f| %>
-      <%= f.check_box :completed %>
-      <label><%= task.task_name %></label>
-      <p><%= task.task_description %></p>
-      <%= render 'shared/edit_icon_svg.html.erb' %>
-      <%= render 'shared/delete_icon_svg.html.erb' %>
-    <% end %>
-    </li>
-  <%# end %>
+  <% @project_tasks.each do |task|   %>
+    <%= render 'tasks/single_task_item', task: task %>
+  <% end %>
   </ul>
 </div>

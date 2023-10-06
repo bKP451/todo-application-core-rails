@@ -8,18 +8,34 @@
   <div class="project-description-section-heading">
     <div class="project-title">
       <h1>
-        <%= @project.project_name %>
+        <%= @project.project_name %> 
       </h1>
+      <span>⋮</span>
     </div>
     <%= form_with(model: @project, local:true, html: { id: 'project-title-form', style: 'display: none;'}) do |f| %>
-      <%= f.text_field :project_name, class: 'project-name-description-edit-input' %>
+      <%= f.text_field :project_name, class: 'project-name-description-section-edit-input', id: 'project-name-description-section-edit-input'%>
     <% end %>
+  </div>
+
+  <%# Modal for project options%>
+  <!-- Modal -->
+  <div id="project-modal">
+    <div class="modal-content">
+      <p>Edit</p>
+      <%= link_to project_path(@project), method: :delete, data: { confirm: "You sure ?"} do %>
+        <p id="project-delete-button">
+          Delete
+        </p>
+      <% end %>
+    </div>
   </div>
 
   <%= render 'shared/new_task_form', task: @new_task %>
   <ul class="todo-lists">
   <% @tasks.each do |saved_task| %>
-    <%= render 'single_task_item', task: saved_task %>
+    <% if saved_task.task_name.present? %>
+      <%= render 'single_task_item', task: saved_task %>
+    <% end %>
   <% end %>
   </ul>
 </div>

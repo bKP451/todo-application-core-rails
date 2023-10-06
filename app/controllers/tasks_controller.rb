@@ -2,11 +2,12 @@ class TasksController < ApplicationController
   before_action :set_project
   # before_action :set_task, only: %i[ destroy ]
 
+  def new
+  end
+  
   def show
-    @new_task = @project.tasks.new
-
-
     if @project
+      @new_task = @project.tasks.new
       @tasks = @project.tasks
     else 
       redirect_to root_path

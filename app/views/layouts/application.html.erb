@@ -24,11 +24,11 @@
         <%= link_to project.project_name, project_path(project), style: should_underline_link?(project) ? 'text-decoration: underline;' : '' %>
         </li>
       <% end %>
-      <li> <%= render 'shared/add_icon_svg' %> 
-      <%= form_with(model: Project.new, remote: true) do |f|%>
-        <%= f.text_field :project_name %>
-        <%= f.submit 'Create', class: 'btn btn-primary' %> 
-      <% end %>
+      <li class="create-new-project"> 
+        <%= render 'shared/add_icon_svg' %> 
+        <%= form_with(model: Project.new, remote: true, html: { id: 'new-project-input-form'}) do |f|%>
+          <%= f.text_field :project_name, placeholder: "New Project" %>
+        <% end %>
       </li>
     </ul>
   <% else %>
