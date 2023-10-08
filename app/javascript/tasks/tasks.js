@@ -5,7 +5,7 @@ document.addEventListener("turbolinks:load", function () {
   const projectTitle = document.querySelector(".project-description-section-heading .project-title h1")
   const projectTitleForm = document.getElementById('project-title-form')
   const projectTitleEditInput = document.querySelector('#project-name-description-section-edit-input');
-  const newProjectInput = document.getElementById('project_project_name');
+  const newProjectInput = document.getElementById('new-project-input');
   const newProjectInputForm = document.getElementById('new-project-input-form')
   const projectOptionsEllipse = document.querySelector('.project-description-section-heading .project-title span')
   const projectModal = document.getElementById('project-modal');

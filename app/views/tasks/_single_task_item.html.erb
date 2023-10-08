@@ -9,7 +9,7 @@
       <%= f.check_box :completed %>
       <%= f.text_field :task_name%>
       <%= f.text_area :task_description %>
-      <%= f.submit 'Update', class: 'btn btn-primary' %>
+      <%= f.submit 'Update', class: 'update-task' %>
     </div>
     <%= render 'shared/edit_icon_svg.html.erb', task: task, class: 'edit-icon' %>
     <%= render 'shared/delete_icon_svg.html.erb', task: task, class: 'cancel-icon' %>

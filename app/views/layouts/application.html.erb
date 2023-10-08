@@ -27,7 +27,7 @@
       <li class="create-new-project"> 
         <%= render 'shared/add_icon_svg' %> 
         <%= form_with(model: Project.new, remote: true, html: { id: 'new-project-input-form'}) do |f|%>
-          <%= f.text_field :project_name, placeholder: "New Project" %>
+          <%= f.text_field :project_name, placeholder: "New Project", id: 'new-project-input' %>
         <% end %>
       </li>
     </ul>
