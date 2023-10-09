@@ -1,24 +1,35 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Rails Todo Application
 
-Things you may want to cover:
+Project developed under environment
 
-* Ruby version
+Ruby 2.7.2
+Rails 6.0.6.1
 
-* System dependencies
+To run the development environment in your system,
 
-* Configuration
+`git clone git@github.com:bKP451/todo-application-core-rails.git`
 
-* Database creation
+Navigate into the directory
 
-* Database initialization
+`cd todo application core rails`
 
-* How to run the test suite
+install rails 6.0.6.1 on the directory using
 
-* Services (job queues, cache servers, search engines, etc.)
+`gem install rails -v 6.0.6.1`
 
-* Deployment instructions
+Now, install all the gems using bundle command
 
-* ...
+`bundle install`
+
+Migrate the database and seed the database 
+I am using postgresql as the database
+rails db:migrate:seed
+
+Then you can run the todo application application as 
+`rails server`
+
+Thanks.
+
+Expecting your suggestions.
