@@ -1,0 +1,21 @@
+<% if @projects %>
+    <ul>
+      <% @projects.each do |project| %>
+        <li data-project-id="<%= project.id%>">
+          <%= link_to project.project_name, project_path(project), style: should_underline_link?(project) ? 'text-decoration: underline;' : '' %>
+        </li>
+      <% end %>
+      <li class="create-new-project"> 
+      <span class="add-icon">
+          <%= render 'shared/add_icon_svg' %> 
+        </span>
+        <span>
+          <%= form_with(model: Project.new, remote: true, html: { id: 'new-project-input-form'}) do |f|%>
+            <%= f.text_field :project_name, placeholder: "New Project", id: 'new-project-input' %>
+          <% end %>
+        </span>
+      </li>
+    </ul>
+  <% else %>
+    No Project to show
+  <% end %>

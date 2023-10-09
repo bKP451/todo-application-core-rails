@@ -1,0 +1,17 @@
+<%# Modal for project options %>
+    <!-- Modal -->
+<%= form_with(model: @project, local: true, html: { id: 'project-title-form', style: 'display: none;' }) do |f| %>
+        <%= f.text_field :project_name, class: 'project-name-description-section-edit-input', id: 'project-name-description-section-edit-input' %>
+<% end %>
+</div>
+<div id="project-modal">
+  <div class="modal-content">
+    <p><b>List options</b></p>
+    <p id="project-edit-button">Edit</p>
+    <%# link_to project_path(@project), method: :delete, data: { confirm: "You sure?" } do %>
+      <p id="project-delete-button">
+        Delete
+      </p>
+    <%# end %>
+  </div>
+</div>

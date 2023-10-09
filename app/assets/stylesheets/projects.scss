@@ -88,3 +88,21 @@ a {
 #new-project-input-form {
   margin-left: 10px;
 }
+
+.add-icon {
+  margin-left: 0;
+  }
+
+#new-project-input {
+  border: none
+}
+
+// Stlying for project-title and ellipse on the top of project description section
+.project-title {
+  display: flex;
+  align-items: center;
+}
+
+.project-title h1 {
+  margin-right: 5px;
+}

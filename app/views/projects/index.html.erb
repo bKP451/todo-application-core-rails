@@ -1,13 +1,23 @@
 <% if @project %>
-  <div class="project-description-section" data-project-id="<%= @project.id%>" >
-    <h1 class="project-description-section-heading"><%= @project.project_name %></h1>
+  <div class="project-description-section" data-project-id="<%= @project.id %>" >
+    <div class="project-description-section-heading">
+      <div class="project-title">
+          <h1>
+            <%= @project.project_name %>
+          </h1>
+          <span>⋮</span>
+        </p>
+      </div>
+    <%= render 'shared/project_modal.html.erb' %>
     <%= render 'shared/new_task_form', task: @task %>
     <ul class="todo-lists">
-    <% @project_tasks.each do |task|   %>
-      <%= render 'tasks/single_task_item', task: task %>
-    <% end %>
+      <% @project_tasks.each do |task| %>
+        <% if task.task_name.present? %>
+          <%= render 'tasks/single_task_item', task: task %>
+        <% end %>
+      <% end %>
     </ul>
   </div>
 <% else %>
-  <h1>Sorry no projects loaded into the UI</h1>
+  <h1>Sorry, no projects loaded into the UI</h1>
 <% end %>

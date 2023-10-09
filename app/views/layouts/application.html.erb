@@ -4,37 +4,19 @@
     <title><%= full_title(yield(:title)) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-  <h1> 
-  <%= link_to "TO-DOOOOO", root_path, class: "todo-app-title" %>
-  </h1>
-
-  <div class="body-section">
-  <div class="projects-listing-section">
-  <h2>Projects</h2>
-  <% if @projects %>
-    <ul>
-      <% @projects.each do |project| %>
-        <li data-project-id="<%= project.id%>">
-        <%= link_to project.project_name, project_path(project), style: should_underline_link?(project) ? 'text-decoration: underline;' : '' %>
-        </li>
-      <% end %>
-      <li class="create-new-project"> 
-        <%= render 'shared/add_icon_svg' %> 
-        <%= form_with(model: Project.new, remote: true, html: { id: 'new-project-input-form'}) do |f|%>
-          <%= f.text_field :project_name, placeholder: "New Project", id: 'new-project-input' %>
-        <% end %>
-      </li>
-    </ul>
-  <% else %>
-    No Project to show
-  <% end %>
-  </div>
-    <%= yield %>
+    <h1> 
+      <%= link_to "TO-DOOOOO", root_path, class: "todo-app-title" %>
+    </h1>
+    <div class="body-section">
+    <div class="projects-listing-section">
+      <h2>Projects</h2>
+      <%= render 'shared/project_sidebar' %>
+    </div>
+      <%= yield %>
   </body>
 </html>

@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "CanCreateNewTasks", type: :feature do
-  # pending "add some scenarios (or delete) #{__FILE__}"
   describe "Can create new task" do
     it "Click on Add on  project description should create new a task" do
       project = Project.create(project_name: "Take my hand")

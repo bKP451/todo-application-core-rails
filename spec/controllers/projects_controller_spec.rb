@@ -2,8 +2,6 @@ require 'rails_helper'
 
 RSpec.describe ProjectsController, type: :controller do
   context "checking for project create action" do
-
-
     subject {
       Project.new(project_name: "Do not come crying to me!")
     }
@@ -28,5 +26,4 @@ RSpec.describe ProjectsController, type: :controller do
       expect(Project.count).to eq 0
     end
   end
-
 end
