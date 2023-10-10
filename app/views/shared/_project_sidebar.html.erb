@@ -1,7 +1,7 @@
 <% if @projects %>
     <ul>
       <% @projects.each do |project| %>
-        <li data-project-id="<%= project.id%>">
+        <li data-project-id="<%= project.id %>">
           <%= link_to project.project_name, project_path(project), style: should_underline_link?(project) ? 'text-decoration: underline;' : '' %>
         </li>
       <% end %>

@@ -11,7 +11,7 @@ document.addEventListener("turbolinks:load", function () {
   const projectModal = document.getElementById('project-modal');
   const editButtonOfModal = document.getElementById('project-edit-button');
   const deleteButtonOfModal = document.getElementById('project-delete-button');
-  
+  const completeTaskCheckbox = document.querySelector('.complete-task-checkbox');  
 
   editButton && editButton.addEventListener("click", function () {
     readOnlyView.style.display = "none";
@@ -67,5 +67,41 @@ document.addEventListener("turbolinks:load", function () {
     projectModal.style.left = `${ellipseRect.left}px`; // Align with the left edge of the ⋮ element
     projectModal.style.display = projectModal.style.display === 'block' ? 'none' : 'block' ;
   })
+
+  // logic for complete task
+  completeTaskCheckbox && completeTaskCheckbox.addEventListener('change', function(){
+    const form = this.closest('form');
+    const formData = new FormData(form);
+
+    const xhr = new XMLHttpRequest();
+    xhr.open('PATCH', form.getAttribute('action'))
+
+    xhr.onload = function() {
+      if (xhr.status === 200){
+        const taskItem = form.closest('.single-todo-item');
+        const read_only = taskItem.querySelector('.read-only');
+        const taskNameLabel = read_only.querySelector('.label');
+
+        console.log(`Successfully toggled the completed status`)
+
+        // if (taskNameLabel){
+        //   if(completeTaskCheckbox.checked){
+        //     taskNameLabel.style.textDecoration = 'line-through';
+        //   } else {
+        //     taskNameLabel.style.textDecoration = 'none';
+        //   }
+        // }
+      }else {
+        console.log('Error in updating the completion status')
+      }
+    }
+
+    xhr.onerror = function() {
+      console.log(`XML Http Request error in toggling completed status`)
+    }
+
+    xhr.send(formData);
+  })
+
   
 });

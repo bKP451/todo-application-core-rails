@@ -1,5 +1,5 @@
 class TasksController < ApplicationController
-  before_action :set_project
+  before_action :set_project, expect: %i[ completed ]
   # before_action :set_task, only: %i[ destroy ]
 
   def new
@@ -36,6 +36,24 @@ class TasksController < ApplicationController
     end
     
   end
+
+  def completed
+    @task = Task.find(params[:id])
+
+    #  Toggling the completed status of the task
+    @task.completed = !@task.completed
+
+    respond_to do |format|
+      if @task.save
+        format.html { redirect_to root_path }
+        format.js { render 'updated_task_status' }
+      else 
+        format.js { render :errors }
+        format.html { redirect_to root_path}
+      end
+    end
+  end
+
   
   
   def destroy
@@ -57,7 +75,7 @@ class TasksController < ApplicationController
   # end
 
   def task_params
-    params.require(:task).permit(:task_name, :task_description)
+    params.require(:task).permit(:task_name, :task_description, :completed)
   end
   
 end
