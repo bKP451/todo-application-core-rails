@@ -29,6 +29,9 @@ document.addEventListener("turbolinks:load", function () {
     projectModal.style.display = "none";
   })
 
+  // Delete Project functionality of delete options from 
+  // modal when opened on ellipse icon.
+
   deleteButtonOfModal.addEventListener("click", function(e){
     projectModal.style.display = "none";
 
