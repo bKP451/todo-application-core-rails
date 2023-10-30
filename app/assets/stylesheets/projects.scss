@@ -106,3 +106,20 @@ a {
 .project-title h1 {
   margin-right: 5px;
 }
+
+
+.modal-content {
+  p:not(:first-child):hover {
+    cursor: pointer;
+    background-color: red;
+  }
+}
+
+  
+// Project Modal
+#project-modal {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+}

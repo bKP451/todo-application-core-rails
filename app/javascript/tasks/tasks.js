@@ -12,7 +12,10 @@ document.addEventListener("turbolinks:load", function () {
   const editButtonOfModal = document.getElementById('project-edit-button');
   const deleteButtonOfModal = document.getElementById('project-delete-button');
   const completeTaskCheckbox = document.querySelector('.complete-task-checkbox');  
-
+  const deleteTaskButtons = document.querySelectorAll('.delete-task-button');
+  const deleteModal = document.querySelector('.modal');
+  const closeButtonOfDeleteModal = document.querySelector('.delete-modal-close-button');
+  
   editButton && editButton.addEventListener("click", function () {
     readOnlyView.style.display = "none";
     editView.style.display = "block";
@@ -34,26 +37,7 @@ document.addEventListener("turbolinks:load", function () {
 
   deleteButtonOfModal.addEventListener("click", function(e){
     projectModal.style.display = "none";
-
-    // Show the delete confirmation dialog
-    if(confirm("You sure?")){
-      // const projectId 
-      fetch(`/projects/${projectId}`, {
-        method: 'DELETE',
-        headers: {
-          'X-CSRF-TOKEN': '<%= form_authenticity_token %>',
-          'Content-Type': 'application/json'
-        }
-      })
-      .then(response => {
-        if(response.ok){
-          window.location.href = '/';
-        }else
-        {console.log("error in deletion")}
-      }).catch(error => {
-        console.log('Error', error)
-      })
-    }
+    console.log(`Delete button of Project modal options clicked.`)
   })
 
   projectTitleEditInput.addEventListener("blur", function(){
@@ -77,7 +61,10 @@ document.addEventListener("turbolinks:load", function () {
     const formData = new FormData(form);
 
     const xhr = new XMLHttpRequest();
-    xhr.open('PATCH', form.getAttribute('action'))
+    const action = form.getAttribute('action');
+    const url = `http://localhost:3000${action}`;
+    console.log(`url is ${url}`)
+    xhr.open('PATCH', url);
 
     xhr.onload = function() {
       if (xhr.status === 200){
@@ -95,7 +82,7 @@ document.addEventListener("turbolinks:load", function () {
         //   }
         // }
       }else {
-        console.log('Error in updating the completion status')
+        console.log(this.responseText)
       }
     }
 
@@ -106,5 +93,33 @@ document.addEventListener("turbolinks:load", function () {
     xhr.send(formData);
   })
 
+  function openModal(id){
+    const modal = document.getElementById('customModal'+ id);
+    modal.style.display = "block";
+  }
+
+  function closeModal(id){
+  }
   
-});
+  deleteTaskButtons.forEach(function(element){
+    element.addEventListener('click', function(){
+      deleteModal.style.display = "block";
+  })
+    
+    // Logic for close button of Delete Modal
+  closeButtonOfDeleteModal.addEventListener('click', function(){
+    console.log('close button of Delete modal is clicked.')
+    const modal = document.getElementById('customModal' + id);
+    modal.style.display ="none";
+  })
+
+  })
+
+  
+
+
+
+  
+})
+
+

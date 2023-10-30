@@ -1,5 +1,4 @@
 <li class="single-todo-item" data-task-id="<%= task.id %>">
-<%# debugger %>
   <%= form_with(model: task, url: completed_task_path(task), local: true, method: :patch) do |f| %>
     <div class="read-only">
       <%= f.check_box :completed, class: 'complete-task-checkbox' %>
@@ -13,10 +12,13 @@
         </label>
       <% end %>
       <p><%= task.task_description %></p>
-    <%= render 'shared/edit_icon_svg.html.erb', task: task, class: 'edit-icon' %>
-    <%= render 'shared/delete_icon_svg.html.erb', task: task, class: 'cancel-icon' %>
+
+      <%= render 'shared/edit_icon_svg.html.erb', task: task, class: 'edit-icon' %>
+      <%= render 'shared/delete_icon_svg.html.erb', task: task, class: 'cancel-icon' %>
+    
     </div>
   <% end %>
+  
   <%= form_with(model: task, local: true) do |f| %>  
     <div class="edit" style="display: none;">
       <%= f.check_box :completed %>
