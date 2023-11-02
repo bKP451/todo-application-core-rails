@@ -12,7 +12,7 @@ class ProjectsController < ApplicationController
     @new_project = Project.new(project_params)
     if @new_project.save
       redirect_to project_path(@new_project)
-    else 
+    else
       flash[:danger] = @new_project.errors.full_messages.join(",")
     end
   end

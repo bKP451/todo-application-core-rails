@@ -6,12 +6,24 @@
 </div>
 <div id="project-modal">
   <div class="modal-content">
-    <p><b>List options</b></p>
+    <p><b><u>List options</u></b></p>
     <p id="project-edit-button">Edit</p>
-    <%# link_to project_path(@project), method: :delete, data: { confirm: "You sure?" } do %>
-      <p id="project-delete-button">
-        Delete
-      </p>
-    <%# end %>
+    <p id="project-delete-button">
+      Delete
+    </p>
+  </div>
+</div>
+
+<div class="project-delete-modal">
+  <div class="project-delete-modal-content">
+    <span class="project-delete-modal-close-button">&times;</span>
+    Delete
+    <h3><%= project.project_name %></h3>
+    <p>Do you want to delete the project ?</p>
+    <button type="button" class="project-delete-modal-cancel-button">Cancel</button>
+    <%= link_to project_path(@project), method: :delete do %>
+      <button> Delete </button>
+    <% end %>
+     
   </div>
 </div>

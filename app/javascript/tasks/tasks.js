@@ -15,6 +15,7 @@ document.addEventListener("turbolinks:load", function () {
   const deleteTaskButtons = document.querySelectorAll('.delete-task-button');
   const deleteModal = document.querySelector('.modal');
   const closeButtonOfDeleteModal = document.querySelector('.delete-modal-close-button');
+  const cancelButtonOfDeleteModal = document.querySelector('.delete-modal-cancel')
   
   editButton && editButton.addEventListener("click", function () {
     readOnlyView.style.display = "none";
@@ -37,7 +38,6 @@ document.addEventListener("turbolinks:load", function () {
 
   deleteButtonOfModal.addEventListener("click", function(e){
     projectModal.style.display = "none";
-    console.log(`Delete button of Project modal options clicked.`)
   })
 
   projectTitleEditInput.addEventListener("blur", function(){
@@ -108,9 +108,13 @@ document.addEventListener("turbolinks:load", function () {
     
     // Logic for close button of Delete Modal
   closeButtonOfDeleteModal.addEventListener('click', function(){
-    console.log('close button of Delete modal is clicked.')
-    const modal = document.getElementById('customModal' + id);
+    const modal = document.querySelector('.modal');
     modal.style.display ="none";
+  })
+
+  cancelButtonOfDeleteModal.addEventListener('click', function(){
+    const modal = document.querySelector('.modal');
+    modal.style.display = "none";
   })
 
   })

@@ -14,9 +14,13 @@
 <div id="customModal<%= task.id %>" class="modal">
   <div class="modal-content">
     <span class="delete-modal-close-button">&times;</span>
+    Delete 
+    <h3><%= task.task_name %></h3>
     <p>Do you want to delete the task? </p>
-    <%= link_to task_path(task), method: :delete %>
-    delete
+    <button type="button" class="delete-modal-cancel">Cancel</button>
+    <%= link_to task_path(task), method: :delete do %>
+    <button>delete</button>
+    <% end %>
   </div>
 </div>
 
