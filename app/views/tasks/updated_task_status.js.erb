@@ -1,0 +1,9 @@
+console.log(`Updated task status JavaScript is running.`)
+
+const taskItem = document.querySelector(`.single-todo-item[data-task-id= '<%= @task.id %>'] .read-only label`);
+<% if @task.completed %>
+  taskItem.style.textDecoration = 'line-through'
+<% else %>
+  taskItem.style.textDecoration = 'none'
+<% end %>
+

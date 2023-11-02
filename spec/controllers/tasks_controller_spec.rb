@@ -31,7 +31,7 @@ RSpec.describe TasksController, type: :controller do
       subject.update(task_name: "I will go", task_description: "Until you are here resting with me")
       expect(subject.task_name).to eq "I will g"
     end
-  end
+end
   
   # context "Destroying the task" do
   #   it "destroying the task" do

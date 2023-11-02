@@ -12,7 +12,7 @@
       </h1>
       <span>⋮</span>
     </div>
-  <%= render 'shared/project_modal' %>
+  <%= render 'shared/project_modal', project: @project %>
   <%= render 'shared/new_task_form', task: @new_task %>
   <ul class="todo-lists">
   <% @tasks.each do |saved_task| %>

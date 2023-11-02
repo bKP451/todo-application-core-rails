@@ -8,7 +8,7 @@
           <span>⋮</span>
         </p>
       </div>
-    <%= render 'shared/project_modal.html.erb' %>
+    <%= render 'shared/project_modal.html.erb', project: @project %>
     <%= render 'shared/new_task_form', task: @task %>
     <ul class="todo-lists">
       <% @project_tasks.each do |task| %>
